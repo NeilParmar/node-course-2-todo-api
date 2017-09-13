@@ -1,0 +1,495 @@
+Last login: Thu Aug 31 20:03:50 on ttys000
+Neils-MacBook-Pro:bin neil$ cd ../../
+Neils-MacBook-Pro:~ neil$ cd Desktop/
+Neils-MacBook-Pro:Desktop neil$ cd node-todo-api/
+Neils-MacBook-Pro:node-todo-api neil$ ls
+node_modules		package.json		server
+package-lock.json	playground
+Neils-MacBook-Pro:node-todo-api neil$ 
+Neils-MacBook-Pro:node-todo-api neil$ mongodb://<dbuser>:<dbpassword>@ds163053.mlab.com:63053/todoapp
+-bash: dbuser: No such file or directory
+Neils-MacBook-Pro:node-todo-api neil$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   package.json
+	modified:   server/db/mongoose.js
+	modified:   server/server.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Neils-MacBook-Pro:node-todo-api neil$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   package.json
+	modified:   server/db/mongoose.js
+	modified:   server/server.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Neils-MacBook-Pro:node-todo-api neil$ git commit -am 'Setup app for Heroku'
+[master 354d632] Setup app for Heroku
+ 3 files changed, 8 insertions(+), 4 deletions(-)
+Neils-MacBook-Pro:node-todo-api neil$ git push
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (7/7), 754 bytes | 0 bytes/s, done.
+Total 7 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To https://github.com/NeilParmar/node-course-2-todo-api.git
+   3b592ad..354d632  master -> master
+Neils-MacBook-Pro:node-todo-api neil$ git push heroku master
+Counting objects: 67, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (61/61), done.
+Writing objects: 100% (67/67), 25.48 KiB | 0 bytes/s, done.
+Total 67 (delta 28), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote: 
+remote: -----> Node.js app detected
+remote: 
+remote: -----> Creating runtime environment
+remote:        
+remote:        NPM_CONFIG_LOGLEVEL=error
+remote:        NPM_CONFIG_PRODUCTION=true
+remote:        NODE_VERBOSE=false
+remote:        NODE_ENV=production
+remote:        NODE_MODULES_CACHE=true
+remote: 
+remote: -----> Installing binaries
+remote:        engines.node (package.json):  8.2.1
+remote:        engines.npm (package.json):   unspecified (use default)
+remote:        
+remote:        Resolving node version 8.2.1...
+remote:        Downloading and installing node 8.2.1...
+remote:        Detected package-lock.json: defaulting npm to version 5.x.x
+remote:        Bootstrapping npm 5.x.x (replacing 5.3.0)...
+remote:        npm 5.3.0 installed
+remote: 
+remote: -----> Restoring cache
+remote:        Skipping cache restore (not-found)
+remote: 
+remote: -----> Building dependencies
+remote:        Installing node modules (package.json + package-lock)
+remote:        added 76 packages in 4.265s
+remote: 
+remote: -----> Caching build
+remote:        Clearing previous node cache
+remote:        Saving 2 cacheDirectories (default):
+remote:        - node_modules
+remote:        - bower_components (nothing to cache)
+remote: 
+remote: -----> Build succeeded!
+remote: -----> Discovering process types
+remote:        Procfile declares types     -> (none)
+remote:        Default types for buildpack -> web
+remote: 
+remote: -----> Compressing...
+remote:        Done: 18.5M
+remote: -----> Launching...
+remote:        Released v3
+remote:        https://young-journey-25482.herokuapp.com/ deployed to Heroku
+remote: 
+remote: Verifying deploy... done.
+To https://git.heroku.com/young-journey-25482.git
+ * [new branch]      master -> master
+Neils-MacBook-Pro:node-todo-api neil$ heroku logs
+2017-08-30T01:30:18.563747+00:00 app[api]: Release v1 created by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.563747+00:00 app[api]: Initial release by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.962856+00:00 app[api]: Release v2 created by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.962856+00:00 app[api]: Enable Logplex by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:00.000000+00:00 app[api]: Build started by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.161431+00:00 app[api]: Scaled to web@1:Free by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.140559+00:00 app[api]: Release v3 created by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.140559+00:00 app[api]: Deploy 354d6326 by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:00.000000+00:00 app[api]: Build succeeded
+2017-09-01T00:40:29.792607+00:00 heroku[web.1]: Starting process with command `npm start`
+2017-09-01T00:40:32.723615+00:00 app[web.1]: 
+2017-09-01T00:40:32.723637+00:00 app[web.1]: > todo-api@1.0.0 start /app
+2017-09-01T00:40:32.723638+00:00 app[web.1]: > node server/server.js
+2017-09-01T00:40:32.723638+00:00 app[web.1]: 
+2017-09-01T00:40:33.449134+00:00 app[web.1]: Started on port 14754
+2017-09-01T00:40:33.447481+00:00 app[web.1]: (node:17) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+2017-09-01T00:40:33.470586+00:00 app[web.1]: Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+2017-09-01T00:40:33.480157+00:00 app[web.1]: 
+2017-09-01T00:40:33.480160+00:00 app[web.1]: events.js:182
+2017-09-01T00:40:33.480161+00:00 app[web.1]:       ^
+2017-09-01T00:40:33.480161+00:00 app[web.1]:       throw er; // Unhandled 'error' event
+2017-09-01T00:40:33.480166+00:00 app[web.1]: MongoError: Authentication failed.
+2017-09-01T00:40:33.480166+00:00 app[web.1]:     at Function.MongoError.create (/app/node_modules/mongodb-core/lib/error.js:31:11)
+2017-09-01T00:40:33.480167+00:00 app[web.1]:     at /app/node_modules/mongodb-core/lib/connection/pool.js:497:72
+2017-09-01T00:40:33.480168+00:00 app[web.1]:     at authenticateStragglers (/app/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+2017-09-01T00:40:33.480168+00:00 app[web.1]:     at Connection.messageHandler (/app/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+2017-09-01T00:40:33.480169+00:00 app[web.1]:     at Socket.<anonymous> (/app/node_modules/mongodb-core/lib/connection/connection.js:331:22)
+2017-09-01T00:40:33.480169+00:00 app[web.1]:     at emitOne (events.js:115:13)
+2017-09-01T00:40:33.480170+00:00 app[web.1]:     at Socket.emit (events.js:210:7)
+2017-09-01T00:40:33.480171+00:00 app[web.1]:     at addChunk (_stream_readable.js:252:12)
+2017-09-01T00:40:33.480171+00:00 app[web.1]:     at readableAddChunk (_stream_readable.js:239:11)
+2017-09-01T00:40:33.480172+00:00 app[web.1]:     at Socket.Readable.push (_stream_readable.js:197:10)
+2017-09-01T00:40:33.480172+00:00 app[web.1]:     at TCP.onread (net.js:589:20)
+2017-09-01T00:40:33.493915+00:00 app[web.1]: npm ERR! errno 1
+2017-09-01T00:40:33.493743+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2017-09-01T00:40:33.494026+00:00 app[web.1]: npm ERR! todo-api@1.0.0 start: `node server/server.js`
+2017-09-01T00:40:33.494128+00:00 app[web.1]: npm ERR! Exit status 1
+2017-09-01T00:40:33.494247+00:00 app[web.1]: npm ERR! 
+2017-09-01T00:40:33.494356+00:00 app[web.1]: npm ERR! Failed at the todo-api@1.0.0 start script.
+2017-09-01T00:40:33.494441+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2017-09-01T00:40:33.495503+00:00 app[web.1]: 
+2017-09-01T00:40:33.495710+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2017-09-01T00_40_33_489Z-debug.log
+2017-09-01T00:40:33.495634+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2017-09-01T00:40:33.561939+00:00 heroku[web.1]: Process exited with status 1
+2017-09-01T00:40:33.572623+00:00 heroku[web.1]: State changed from starting to crashed
+2017-09-01T00:40:33.573532+00:00 heroku[web.1]: State changed from crashed to starting
+2017-09-01T00:40:35.686286+00:00 heroku[web.1]: Starting process with command `npm start`
+Neils-MacBook-Pro:node-todo-api neil$ heroku logs
+2017-08-30T01:30:18.563747+00:00 app[api]: Release v1 created by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.563747+00:00 app[api]: Initial release by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.962856+00:00 app[api]: Release v2 created by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.962856+00:00 app[api]: Enable Logplex by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:00.000000+00:00 app[api]: Build started by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.161431+00:00 app[api]: Scaled to web@1:Free by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.140559+00:00 app[api]: Release v3 created by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.140559+00:00 app[api]: Deploy 354d6326 by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:00.000000+00:00 app[api]: Build succeeded
+2017-09-01T00:40:29.792607+00:00 heroku[web.1]: Starting process with command `npm start`
+2017-09-01T00:40:32.723615+00:00 app[web.1]: 
+2017-09-01T00:40:32.723637+00:00 app[web.1]: > todo-api@1.0.0 start /app
+2017-09-01T00:40:32.723638+00:00 app[web.1]: > node server/server.js
+2017-09-01T00:40:32.723638+00:00 app[web.1]: 
+2017-09-01T00:40:33.449134+00:00 app[web.1]: Started on port 14754
+2017-09-01T00:40:33.447481+00:00 app[web.1]: (node:17) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+2017-09-01T00:40:33.470586+00:00 app[web.1]: Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+2017-09-01T00:40:33.480157+00:00 app[web.1]: 
+2017-09-01T00:40:33.480160+00:00 app[web.1]: events.js:182
+2017-09-01T00:40:33.480161+00:00 app[web.1]:       ^
+2017-09-01T00:40:33.480161+00:00 app[web.1]:       throw er; // Unhandled 'error' event
+2017-09-01T00:40:33.480166+00:00 app[web.1]: MongoError: Authentication failed.
+2017-09-01T00:40:33.480166+00:00 app[web.1]:     at Function.MongoError.create (/app/node_modules/mongodb-core/lib/error.js:31:11)
+2017-09-01T00:40:33.480167+00:00 app[web.1]:     at /app/node_modules/mongodb-core/lib/connection/pool.js:497:72
+2017-09-01T00:40:33.480168+00:00 app[web.1]:     at authenticateStragglers (/app/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+2017-09-01T00:40:33.480168+00:00 app[web.1]:     at Connection.messageHandler (/app/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+2017-09-01T00:40:33.480169+00:00 app[web.1]:     at Socket.<anonymous> (/app/node_modules/mongodb-core/lib/connection/connection.js:331:22)
+2017-09-01T00:40:33.480169+00:00 app[web.1]:     at emitOne (events.js:115:13)
+2017-09-01T00:40:33.480170+00:00 app[web.1]:     at Socket.emit (events.js:210:7)
+2017-09-01T00:40:33.480171+00:00 app[web.1]:     at addChunk (_stream_readable.js:252:12)
+2017-09-01T00:40:33.480171+00:00 app[web.1]:     at readableAddChunk (_stream_readable.js:239:11)
+2017-09-01T00:40:33.480172+00:00 app[web.1]:     at Socket.Readable.push (_stream_readable.js:197:10)
+2017-09-01T00:40:33.480172+00:00 app[web.1]:     at TCP.onread (net.js:589:20)
+2017-09-01T00:40:33.493915+00:00 app[web.1]: npm ERR! errno 1
+2017-09-01T00:40:33.493743+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2017-09-01T00:40:33.494026+00:00 app[web.1]: npm ERR! todo-api@1.0.0 start: `node server/server.js`
+2017-09-01T00:40:33.494128+00:00 app[web.1]: npm ERR! Exit status 1
+2017-09-01T00:40:33.494247+00:00 app[web.1]: npm ERR! 
+2017-09-01T00:40:33.494356+00:00 app[web.1]: npm ERR! Failed at the todo-api@1.0.0 start script.
+2017-09-01T00:40:33.494441+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2017-09-01T00:40:33.495503+00:00 app[web.1]: 
+2017-09-01T00:40:33.495710+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2017-09-01T00_40_33_489Z-debug.log
+2017-09-01T00:40:33.495634+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2017-09-01T00:40:33.561939+00:00 heroku[web.1]: Process exited with status 1
+2017-09-01T00:40:33.572623+00:00 heroku[web.1]: State changed from starting to crashed
+2017-09-01T00:40:33.573532+00:00 heroku[web.1]: State changed from crashed to starting
+2017-09-01T00:40:35.686286+00:00 heroku[web.1]: Starting process with command `npm start`
+2017-09-01T00:40:39.274172+00:00 app[web.1]: 
+2017-09-01T00:40:39.274197+00:00 app[web.1]: > todo-api@1.0.0 start /app
+2017-09-01T00:40:39.274197+00:00 app[web.1]: > node server/server.js
+2017-09-01T00:40:39.274198+00:00 app[web.1]: 
+2017-09-01T00:40:40.626236+00:00 app[web.1]: (node:17) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+2017-09-01T00:40:40.637239+00:00 app[web.1]: Started on port 51542
+2017-09-01T00:40:40.698457+00:00 app[web.1]: Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+2017-09-01T00:40:40.711211+00:00 app[web.1]: events.js:182
+2017-09-01T00:40:40.711208+00:00 app[web.1]: 
+2017-09-01T00:40:40.711213+00:00 app[web.1]:       throw er; // Unhandled 'error' event
+2017-09-01T00:40:40.711213+00:00 app[web.1]:       ^
+2017-09-01T00:40:40.711218+00:00 app[web.1]: MongoError: Authentication failed.
+2017-09-01T00:40:40.711219+00:00 app[web.1]:     at Function.MongoError.create (/app/node_modules/mongodb-core/lib/error.js:31:11)
+2017-09-01T00:40:40.711220+00:00 app[web.1]:     at /app/node_modules/mongodb-core/lib/connection/pool.js:497:72
+2017-09-01T00:40:40.711221+00:00 app[web.1]:     at authenticateStragglers (/app/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+2017-09-01T00:40:40.711222+00:00 app[web.1]:     at Connection.messageHandler (/app/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+2017-09-01T00:40:40.711222+00:00 app[web.1]:     at Socket.<anonymous> (/app/node_modules/mongodb-core/lib/connection/connection.js:331:22)
+2017-09-01T00:40:40.711223+00:00 app[web.1]:     at emitOne (events.js:115:13)
+2017-09-01T00:40:40.711225+00:00 app[web.1]:     at addChunk (_stream_readable.js:252:12)
+2017-09-01T00:40:40.711224+00:00 app[web.1]:     at Socket.emit (events.js:210:7)
+2017-09-01T00:40:40.711225+00:00 app[web.1]:     at readableAddChunk (_stream_readable.js:239:11)
+2017-09-01T00:40:40.711226+00:00 app[web.1]:     at Socket.Readable.push (_stream_readable.js:197:10)
+2017-09-01T00:40:40.711227+00:00 app[web.1]:     at TCP.onread (net.js:589:20)
+2017-09-01T00:40:40.747433+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2017-09-01T00:40:40.747671+00:00 app[web.1]: npm ERR! errno 1
+2017-09-01T00:40:40.747847+00:00 app[web.1]: npm ERR! todo-api@1.0.0 start: `node server/server.js`
+2017-09-01T00:40:40.748027+00:00 app[web.1]: npm ERR! Exit status 1
+2017-09-01T00:40:40.748220+00:00 app[web.1]: npm ERR! 
+2017-09-01T00:40:40.748419+00:00 app[web.1]: npm ERR! Failed at the todo-api@1.0.0 start script.
+2017-09-01T00:40:40.750027+00:00 app[web.1]: 
+2017-09-01T00:40:40.750357+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2017-09-01T00:40:40.748607+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2017-09-01T00:40:40.750498+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2017-09-01T00_40_40_732Z-debug.log
+2017-09-01T00:40:40.852667+00:00 heroku[web.1]: State changed from starting to crashed
+2017-09-01T00:40:40.838748+00:00 heroku[web.1]: Process exited with status 1
+2017-09-01T00:42:47.329050+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=young-journey-25482.herokuapp.com request_id=1ddbd377-f6b6-4166-92d7-79a617823ea9 fwd="73.150.34.89" dyno= connect= service= status=503 bytes= protocol=https
+2017-09-01T00:42:47.561195+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=young-journey-25482.herokuapp.com request_id=02f94862-9bd3-405f-8d3c-b411f68c93e2 fwd="73.150.34.89" dyno= connect= service= status=503 bytes= protocol=https
+Neils-MacBook-Pro:node-todo-api neil$ git push heroku master
+Everything up-to-date
+Neils-MacBook-Pro:node-todo-api neil$ heroku logs
+2017-08-30T01:30:18.563747+00:00 app[api]: Release v1 created by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.563747+00:00 app[api]: Initial release by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.962856+00:00 app[api]: Release v2 created by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.962856+00:00 app[api]: Enable Logplex by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:00.000000+00:00 app[api]: Build started by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.161431+00:00 app[api]: Scaled to web@1:Free by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.140559+00:00 app[api]: Release v3 created by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.140559+00:00 app[api]: Deploy 354d6326 by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:00.000000+00:00 app[api]: Build succeeded
+2017-09-01T00:40:29.792607+00:00 heroku[web.1]: Starting process with command `npm start`
+2017-09-01T00:40:32.723615+00:00 app[web.1]: 
+2017-09-01T00:40:32.723637+00:00 app[web.1]: > todo-api@1.0.0 start /app
+2017-09-01T00:40:32.723638+00:00 app[web.1]: > node server/server.js
+2017-09-01T00:40:32.723638+00:00 app[web.1]: 
+2017-09-01T00:40:33.449134+00:00 app[web.1]: Started on port 14754
+2017-09-01T00:40:33.447481+00:00 app[web.1]: (node:17) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+2017-09-01T00:40:33.470586+00:00 app[web.1]: Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+2017-09-01T00:40:33.480157+00:00 app[web.1]: 
+2017-09-01T00:40:33.480160+00:00 app[web.1]: events.js:182
+2017-09-01T00:40:33.480161+00:00 app[web.1]:       ^
+2017-09-01T00:40:33.480161+00:00 app[web.1]:       throw er; // Unhandled 'error' event
+2017-09-01T00:40:33.480166+00:00 app[web.1]: MongoError: Authentication failed.
+2017-09-01T00:40:33.480166+00:00 app[web.1]:     at Function.MongoError.create (/app/node_modules/mongodb-core/lib/error.js:31:11)
+2017-09-01T00:40:33.480167+00:00 app[web.1]:     at /app/node_modules/mongodb-core/lib/connection/pool.js:497:72
+2017-09-01T00:40:33.480168+00:00 app[web.1]:     at authenticateStragglers (/app/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+2017-09-01T00:40:33.480168+00:00 app[web.1]:     at Connection.messageHandler (/app/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+2017-09-01T00:40:33.480169+00:00 app[web.1]:     at Socket.<anonymous> (/app/node_modules/mongodb-core/lib/connection/connection.js:331:22)
+2017-09-01T00:40:33.480169+00:00 app[web.1]:     at emitOne (events.js:115:13)
+2017-09-01T00:40:33.480170+00:00 app[web.1]:     at Socket.emit (events.js:210:7)
+2017-09-01T00:40:33.480171+00:00 app[web.1]:     at addChunk (_stream_readable.js:252:12)
+2017-09-01T00:40:33.480171+00:00 app[web.1]:     at readableAddChunk (_stream_readable.js:239:11)
+2017-09-01T00:40:33.480172+00:00 app[web.1]:     at Socket.Readable.push (_stream_readable.js:197:10)
+2017-09-01T00:40:33.480172+00:00 app[web.1]:     at TCP.onread (net.js:589:20)
+2017-09-01T00:40:33.493915+00:00 app[web.1]: npm ERR! errno 1
+2017-09-01T00:40:33.493743+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2017-09-01T00:40:33.494026+00:00 app[web.1]: npm ERR! todo-api@1.0.0 start: `node server/server.js`
+2017-09-01T00:40:33.494128+00:00 app[web.1]: npm ERR! Exit status 1
+2017-09-01T00:40:33.494247+00:00 app[web.1]: npm ERR! 
+2017-09-01T00:40:33.494356+00:00 app[web.1]: npm ERR! Failed at the todo-api@1.0.0 start script.
+2017-09-01T00:40:33.494441+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2017-09-01T00:40:33.495503+00:00 app[web.1]: 
+2017-09-01T00:40:33.495710+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2017-09-01T00_40_33_489Z-debug.log
+2017-09-01T00:40:33.495634+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2017-09-01T00:40:33.561939+00:00 heroku[web.1]: Process exited with status 1
+2017-09-01T00:40:33.572623+00:00 heroku[web.1]: State changed from starting to crashed
+2017-09-01T00:40:33.573532+00:00 heroku[web.1]: State changed from crashed to starting
+2017-09-01T00:40:35.686286+00:00 heroku[web.1]: Starting process with command `npm start`
+2017-09-01T00:40:39.274172+00:00 app[web.1]: 
+2017-09-01T00:40:39.274197+00:00 app[web.1]: > todo-api@1.0.0 start /app
+2017-09-01T00:40:39.274197+00:00 app[web.1]: > node server/server.js
+2017-09-01T00:40:39.274198+00:00 app[web.1]: 
+2017-09-01T00:40:40.626236+00:00 app[web.1]: (node:17) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+2017-09-01T00:40:40.637239+00:00 app[web.1]: Started on port 51542
+2017-09-01T00:40:40.698457+00:00 app[web.1]: Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+2017-09-01T00:40:40.711211+00:00 app[web.1]: events.js:182
+2017-09-01T00:40:40.711208+00:00 app[web.1]: 
+2017-09-01T00:40:40.711213+00:00 app[web.1]:       throw er; // Unhandled 'error' event
+2017-09-01T00:40:40.711213+00:00 app[web.1]:       ^
+2017-09-01T00:40:40.711218+00:00 app[web.1]: MongoError: Authentication failed.
+2017-09-01T00:40:40.711219+00:00 app[web.1]:     at Function.MongoError.create (/app/node_modules/mongodb-core/lib/error.js:31:11)
+2017-09-01T00:40:40.711220+00:00 app[web.1]:     at /app/node_modules/mongodb-core/lib/connection/pool.js:497:72
+2017-09-01T00:40:40.711221+00:00 app[web.1]:     at authenticateStragglers (/app/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+2017-09-01T00:40:40.711222+00:00 app[web.1]:     at Connection.messageHandler (/app/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+2017-09-01T00:40:40.711222+00:00 app[web.1]:     at Socket.<anonymous> (/app/node_modules/mongodb-core/lib/connection/connection.js:331:22)
+2017-09-01T00:40:40.711223+00:00 app[web.1]:     at emitOne (events.js:115:13)
+2017-09-01T00:40:40.711225+00:00 app[web.1]:     at addChunk (_stream_readable.js:252:12)
+2017-09-01T00:40:40.711224+00:00 app[web.1]:     at Socket.emit (events.js:210:7)
+2017-09-01T00:40:40.711225+00:00 app[web.1]:     at readableAddChunk (_stream_readable.js:239:11)
+2017-09-01T00:40:40.711226+00:00 app[web.1]:     at Socket.Readable.push (_stream_readable.js:197:10)
+2017-09-01T00:40:40.711227+00:00 app[web.1]:     at TCP.onread (net.js:589:20)
+2017-09-01T00:40:40.747433+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2017-09-01T00:40:40.747671+00:00 app[web.1]: npm ERR! errno 1
+2017-09-01T00:40:40.747847+00:00 app[web.1]: npm ERR! todo-api@1.0.0 start: `node server/server.js`
+2017-09-01T00:40:40.748027+00:00 app[web.1]: npm ERR! Exit status 1
+2017-09-01T00:40:40.748220+00:00 app[web.1]: npm ERR! 
+2017-09-01T00:40:40.748419+00:00 app[web.1]: npm ERR! Failed at the todo-api@1.0.0 start script.
+2017-09-01T00:40:40.750027+00:00 app[web.1]: 
+2017-09-01T00:40:40.750357+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2017-09-01T00:40:40.748607+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2017-09-01T00:40:40.750498+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2017-09-01T00_40_40_732Z-debug.log
+2017-09-01T00:40:40.852667+00:00 heroku[web.1]: State changed from starting to crashed
+2017-09-01T00:40:40.838748+00:00 heroku[web.1]: Process exited with status 1
+2017-09-01T00:42:47.329050+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=young-journey-25482.herokuapp.com request_id=1ddbd377-f6b6-4166-92d7-79a617823ea9 fwd="73.150.34.89" dyno= connect= service= status=503 bytes= protocol=https
+2017-09-01T00:42:47.561195+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=young-journey-25482.herokuapp.com request_id=02f94862-9bd3-405f-8d3c-b411f68c93e2 fwd="73.150.34.89" dyno= connect= service= status=503 bytes= protocol=https
+Neils-MacBook-Pro:node-todo-api neil$ heroku logs
+2017-08-30T01:30:18.563747+00:00 app[api]: Release v1 created by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.563747+00:00 app[api]: Initial release by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.962856+00:00 app[api]: Release v2 created by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.962856+00:00 app[api]: Enable Logplex by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:00.000000+00:00 app[api]: Build started by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.161431+00:00 app[api]: Scaled to web@1:Free by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.140559+00:00 app[api]: Release v3 created by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.140559+00:00 app[api]: Deploy 354d6326 by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:00.000000+00:00 app[api]: Build succeeded
+2017-09-01T00:40:29.792607+00:00 heroku[web.1]: Starting process with command `npm start`
+2017-09-01T00:40:32.723615+00:00 app[web.1]: 
+2017-09-01T00:40:32.723637+00:00 app[web.1]: > todo-api@1.0.0 start /app
+2017-09-01T00:40:32.723638+00:00 app[web.1]: > node server/server.js
+2017-09-01T00:40:32.723638+00:00 app[web.1]: 
+2017-09-01T00:40:33.449134+00:00 app[web.1]: Started on port 14754
+2017-09-01T00:40:33.447481+00:00 app[web.1]: (node:17) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+2017-09-01T00:40:33.470586+00:00 app[web.1]: Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+2017-09-01T00:40:33.480157+00:00 app[web.1]: 
+2017-09-01T00:40:33.480160+00:00 app[web.1]: events.js:182
+2017-09-01T00:40:33.480161+00:00 app[web.1]:       ^
+2017-09-01T00:40:33.480161+00:00 app[web.1]:       throw er; // Unhandled 'error' event
+2017-09-01T00:40:33.480166+00:00 app[web.1]: MongoError: Authentication failed.
+2017-09-01T00:40:33.480166+00:00 app[web.1]:     at Function.MongoError.create (/app/node_modules/mongodb-core/lib/error.js:31:11)
+2017-09-01T00:40:33.480167+00:00 app[web.1]:     at /app/node_modules/mongodb-core/lib/connection/pool.js:497:72
+2017-09-01T00:40:33.480168+00:00 app[web.1]:     at authenticateStragglers (/app/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+2017-09-01T00:40:33.480168+00:00 app[web.1]:     at Connection.messageHandler (/app/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+2017-09-01T00:40:33.480169+00:00 app[web.1]:     at Socket.<anonymous> (/app/node_modules/mongodb-core/lib/connection/connection.js:331:22)
+2017-09-01T00:40:33.480169+00:00 app[web.1]:     at emitOne (events.js:115:13)
+2017-09-01T00:40:33.480170+00:00 app[web.1]:     at Socket.emit (events.js:210:7)
+2017-09-01T00:40:33.480171+00:00 app[web.1]:     at addChunk (_stream_readable.js:252:12)
+2017-09-01T00:40:33.480171+00:00 app[web.1]:     at readableAddChunk (_stream_readable.js:239:11)
+2017-09-01T00:40:33.480172+00:00 app[web.1]:     at Socket.Readable.push (_stream_readable.js:197:10)
+2017-09-01T00:40:33.480172+00:00 app[web.1]:     at TCP.onread (net.js:589:20)
+2017-09-01T00:40:33.493915+00:00 app[web.1]: npm ERR! errno 1
+2017-09-01T00:40:33.493743+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2017-09-01T00:40:33.494026+00:00 app[web.1]: npm ERR! todo-api@1.0.0 start: `node server/server.js`
+2017-09-01T00:40:33.494128+00:00 app[web.1]: npm ERR! Exit status 1
+2017-09-01T00:40:33.494247+00:00 app[web.1]: npm ERR! 
+2017-09-01T00:40:33.494356+00:00 app[web.1]: npm ERR! Failed at the todo-api@1.0.0 start script.
+2017-09-01T00:40:33.494441+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2017-09-01T00:40:33.495503+00:00 app[web.1]: 
+2017-09-01T00:40:33.495710+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2017-09-01T00_40_33_489Z-debug.log
+2017-09-01T00:40:33.495634+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2017-09-01T00:40:33.561939+00:00 heroku[web.1]: Process exited with status 1
+2017-09-01T00:40:33.572623+00:00 heroku[web.1]: State changed from starting to crashed
+2017-09-01T00:40:33.573532+00:00 heroku[web.1]: State changed from crashed to starting
+2017-09-01T00:40:35.686286+00:00 heroku[web.1]: Starting process with command `npm start`
+2017-09-01T00:40:39.274172+00:00 app[web.1]: 
+2017-09-01T00:40:39.274197+00:00 app[web.1]: > todo-api@1.0.0 start /app
+2017-09-01T00:40:39.274197+00:00 app[web.1]: > node server/server.js
+2017-09-01T00:40:39.274198+00:00 app[web.1]: 
+2017-09-01T00:40:40.626236+00:00 app[web.1]: (node:17) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+2017-09-01T00:40:40.637239+00:00 app[web.1]: Started on port 51542
+2017-09-01T00:40:40.698457+00:00 app[web.1]: Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+2017-09-01T00:40:40.711211+00:00 app[web.1]: events.js:182
+2017-09-01T00:40:40.711208+00:00 app[web.1]: 
+2017-09-01T00:40:40.711213+00:00 app[web.1]:       throw er; // Unhandled 'error' event
+2017-09-01T00:40:40.711213+00:00 app[web.1]:       ^
+2017-09-01T00:40:40.711218+00:00 app[web.1]: MongoError: Authentication failed.
+2017-09-01T00:40:40.711219+00:00 app[web.1]:     at Function.MongoError.create (/app/node_modules/mongodb-core/lib/error.js:31:11)
+2017-09-01T00:40:40.711220+00:00 app[web.1]:     at /app/node_modules/mongodb-core/lib/connection/pool.js:497:72
+2017-09-01T00:40:40.711221+00:00 app[web.1]:     at authenticateStragglers (/app/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+2017-09-01T00:40:40.711222+00:00 app[web.1]:     at Connection.messageHandler (/app/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+2017-09-01T00:40:40.711222+00:00 app[web.1]:     at Socket.<anonymous> (/app/node_modules/mongodb-core/lib/connection/connection.js:331:22)
+2017-09-01T00:40:40.711223+00:00 app[web.1]:     at emitOne (events.js:115:13)
+2017-09-01T00:40:40.711225+00:00 app[web.1]:     at addChunk (_stream_readable.js:252:12)
+2017-09-01T00:40:40.711224+00:00 app[web.1]:     at Socket.emit (events.js:210:7)
+2017-09-01T00:40:40.711225+00:00 app[web.1]:     at readableAddChunk (_stream_readable.js:239:11)
+2017-09-01T00:40:40.711226+00:00 app[web.1]:     at Socket.Readable.push (_stream_readable.js:197:10)
+2017-09-01T00:40:40.711227+00:00 app[web.1]:     at TCP.onread (net.js:589:20)
+2017-09-01T00:40:40.747433+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2017-09-01T00:40:40.747671+00:00 app[web.1]: npm ERR! errno 1
+2017-09-01T00:40:40.747847+00:00 app[web.1]: npm ERR! todo-api@1.0.0 start: `node server/server.js`
+2017-09-01T00:40:40.748027+00:00 app[web.1]: npm ERR! Exit status 1
+2017-09-01T00:40:40.748220+00:00 app[web.1]: npm ERR! 
+2017-09-01T00:40:40.748419+00:00 app[web.1]: npm ERR! Failed at the todo-api@1.0.0 start script.
+2017-09-01T00:40:40.750027+00:00 app[web.1]: 
+2017-09-01T00:40:40.750357+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2017-09-01T00:40:40.748607+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2017-09-01T00:40:40.750498+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2017-09-01T00_40_40_732Z-debug.log
+2017-09-01T00:40:40.852667+00:00 heroku[web.1]: State changed from starting to crashed
+2017-09-01T00:40:40.838748+00:00 heroku[web.1]: Process exited with status 1
+2017-09-01T00:42:47.329050+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=young-journey-25482.herokuapp.com request_id=1ddbd377-f6b6-4166-92d7-79a617823ea9 fwd="73.150.34.89" dyno= connect= service= status=503 bytes= protocol=https
+2017-09-01T00:42:47.561195+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=young-journey-25482.herokuapp.com request_id=02f94862-9bd3-405f-8d3c-b411f68c93e2 fwd="73.150.34.89" dyno= connect= service= status=503 bytes= protocol=https
+Neils-MacBook-Pro:node-todo-api neil$ git push heroku master
+Everything up-to-date
+Neils-MacBook-Pro:node-todo-api neil$ heroku logs
+2017-08-30T01:30:18.563747+00:00 app[api]: Release v1 created by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.563747+00:00 app[api]: Initial release by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.962856+00:00 app[api]: Release v2 created by user parmarn@onid.oregonstate.edu
+2017-08-30T01:30:18.962856+00:00 app[api]: Enable Logplex by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:00.000000+00:00 app[api]: Build started by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.161431+00:00 app[api]: Scaled to web@1:Free by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.140559+00:00 app[api]: Release v3 created by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:27.140559+00:00 app[api]: Deploy 354d6326 by user parmarn@onid.oregonstate.edu
+2017-09-01T00:40:00.000000+00:00 app[api]: Build succeeded
+2017-09-01T00:40:29.792607+00:00 heroku[web.1]: Starting process with command `npm start`
+2017-09-01T00:40:32.723615+00:00 app[web.1]: 
+2017-09-01T00:40:32.723637+00:00 app[web.1]: > todo-api@1.0.0 start /app
+2017-09-01T00:40:32.723638+00:00 app[web.1]: > node server/server.js
+2017-09-01T00:40:32.723638+00:00 app[web.1]: 
+2017-09-01T00:40:33.449134+00:00 app[web.1]: Started on port 14754
+2017-09-01T00:40:33.447481+00:00 app[web.1]: (node:17) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+2017-09-01T00:40:33.470586+00:00 app[web.1]: Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+2017-09-01T00:40:33.480157+00:00 app[web.1]: 
+2017-09-01T00:40:33.480160+00:00 app[web.1]: events.js:182
+2017-09-01T00:40:33.480161+00:00 app[web.1]:       ^
+2017-09-01T00:40:33.480161+00:00 app[web.1]:       throw er; // Unhandled 'error' event
+2017-09-01T00:40:33.480166+00:00 app[web.1]: MongoError: Authentication failed.
+2017-09-01T00:40:33.480166+00:00 app[web.1]:     at Function.MongoError.create (/app/node_modules/mongodb-core/lib/error.js:31:11)
+2017-09-01T00:40:33.480167+00:00 app[web.1]:     at /app/node_modules/mongodb-core/lib/connection/pool.js:497:72
+2017-09-01T00:40:33.480168+00:00 app[web.1]:     at authenticateStragglers (/app/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+2017-09-01T00:40:33.480168+00:00 app[web.1]:     at Connection.messageHandler (/app/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+2017-09-01T00:40:33.480169+00:00 app[web.1]:     at Socket.<anonymous> (/app/node_modules/mongodb-core/lib/connection/connection.js:331:22)
+2017-09-01T00:40:33.480169+00:00 app[web.1]:     at emitOne (events.js:115:13)
+2017-09-01T00:40:33.480170+00:00 app[web.1]:     at Socket.emit (events.js:210:7)
+2017-09-01T00:40:33.480171+00:00 app[web.1]:     at addChunk (_stream_readable.js:252:12)
+2017-09-01T00:40:33.480171+00:00 app[web.1]:     at readableAddChunk (_stream_readable.js:239:11)
+2017-09-01T00:40:33.480172+00:00 app[web.1]:     at Socket.Readable.push (_stream_readable.js:197:10)
+2017-09-01T00:40:33.480172+00:00 app[web.1]:     at TCP.onread (net.js:589:20)
+2017-09-01T00:40:33.493915+00:00 app[web.1]: npm ERR! errno 1
+2017-09-01T00:40:33.493743+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2017-09-01T00:40:33.494026+00:00 app[web.1]: npm ERR! todo-api@1.0.0 start: `node server/server.js`
+2017-09-01T00:40:33.494128+00:00 app[web.1]: npm ERR! Exit status 1
+2017-09-01T00:40:33.494247+00:00 app[web.1]: npm ERR! 
+2017-09-01T00:40:33.494356+00:00 app[web.1]: npm ERR! Failed at the todo-api@1.0.0 start script.
+2017-09-01T00:40:33.494441+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2017-09-01T00:40:33.495503+00:00 app[web.1]: 
+2017-09-01T00:40:33.495710+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2017-09-01T00_40_33_489Z-debug.log
+2017-09-01T00:40:33.495634+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2017-09-01T00:40:33.561939+00:00 heroku[web.1]: Process exited with status 1
+2017-09-01T00:40:33.572623+00:00 heroku[web.1]: State changed from starting to crashed
+2017-09-01T00:40:33.573532+00:00 heroku[web.1]: State changed from crashed to starting
+2017-09-01T00:40:35.686286+00:00 heroku[web.1]: Starting process with command `npm start`
+2017-09-01T00:40:39.274172+00:00 app[web.1]: 
+2017-09-01T00:40:39.274197+00:00 app[web.1]: > todo-api@1.0.0 start /app
+2017-09-01T00:40:39.274197+00:00 app[web.1]: > node server/server.js
+2017-09-01T00:40:39.274198+00:00 app[web.1]: 
+2017-09-01T00:40:40.626236+00:00 app[web.1]: (node:17) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+2017-09-01T00:40:40.637239+00:00 app[web.1]: Started on port 51542
+2017-09-01T00:40:40.698457+00:00 app[web.1]: Db.prototype.authenticate method will no longer be available in the next major release 3.x as MongoDB 3.6 will only allow auth against users in the admin db and will no longer allow multiple credentials on a socket. Please authenticate using MongoClient.connect with auth credentials.
+2017-09-01T00:40:40.711211+00:00 app[web.1]: events.js:182
+2017-09-01T00:40:40.711208+00:00 app[web.1]: 
+2017-09-01T00:40:40.711213+00:00 app[web.1]:       throw er; // Unhandled 'error' event
+2017-09-01T00:40:40.711213+00:00 app[web.1]:       ^
+2017-09-01T00:40:40.711218+00:00 app[web.1]: MongoError: Authentication failed.
+2017-09-01T00:40:40.711219+00:00 app[web.1]:     at Function.MongoError.create (/app/node_modules/mongodb-core/lib/error.js:31:11)
+2017-09-01T00:40:40.711220+00:00 app[web.1]:     at /app/node_modules/mongodb-core/lib/connection/pool.js:497:72
+2017-09-01T00:40:40.711221+00:00 app[web.1]:     at authenticateStragglers (/app/node_modules/mongodb-core/lib/connection/pool.js:443:16)
+2017-09-01T00:40:40.711222+00:00 app[web.1]:     at Connection.messageHandler (/app/node_modules/mongodb-core/lib/connection/pool.js:477:5)
+2017-09-01T00:40:40.711222+00:00 app[web.1]:     at Socket.<anonymous> (/app/node_modules/mongodb-core/lib/connection/connection.js:331:22)
+2017-09-01T00:40:40.711223+00:00 app[web.1]:     at emitOne (events.js:115:13)
+2017-09-01T00:40:40.711225+00:00 app[web.1]:     at addChunk (_stream_readable.js:252:12)
+2017-09-01T00:40:40.711224+00:00 app[web.1]:     at Socket.emit (events.js:210:7)
+2017-09-01T00:40:40.711225+00:00 app[web.1]:     at readableAddChunk (_stream_readable.js:239:11)
+2017-09-01T00:40:40.711226+00:00 app[web.1]:     at Socket.Readable.push (_stream_readable.js:197:10)
+2017-09-01T00:40:40.711227+00:00 app[web.1]:     at TCP.onread (net.js:589:20)
+2017-09-01T00:40:40.747433+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2017-09-01T00:40:40.747671+00:00 app[web.1]: npm ERR! errno 1
+2017-09-01T00:40:40.747847+00:00 app[web.1]: npm ERR! todo-api@1.0.0 start: `node server/server.js`
+2017-09-01T00:40:40.748027+00:00 app[web.1]: npm ERR! Exit status 1
+2017-09-01T00:40:40.748220+00:00 app[web.1]: npm ERR! 
+2017-09-01T00:40:40.748419+00:00 app[web.1]: npm ERR! Failed at the todo-api@1.0.0 start script.
+2017-09-01T00:40:40.750027+00:00 app[web.1]: 
+2017-09-01T00:40:40.750357+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2017-09-01T00:40:40.748607+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2017-09-01T00:40:40.750498+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2017-09-01T00_40_40_732Z-debug.log
+2017-09-01T00:40:40.852667+00:00 heroku[web.1]: State changed from starting to crashed
+2017-09-01T00:40:40.838748+00:00 heroku[web.1]: Process exited with status 1
+2017-09-01T00:42:47.329050+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=young-journey-25482.herokuapp.com request_id=1ddbd377-f6b6-4166-92d7-79a617823ea9 fwd="73.150.34.89" dyno= connect= service= status=503 bytes= protocol=https
+2017-09-01T00:42:47.561195+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=young-journey-25482.herokuapp.com request_id=02f94862-9bd3-405f-8d3c-b411f68c93e2 fwd="73.150.34.89" dyno= connect= service= status=503 bytes= protocol=https
+Neils-MacBook-Pro:node-todo-api neil$ 
